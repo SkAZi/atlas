@@ -115,4 +115,12 @@ defmodule Atlas.Adapters.Postgres do
     |> Enum.map(&Tuple.to_list(&1))
     |> Enum.map(&normalize_values(&1))
   end
+
+  def insert_sql(model, attributes) do
+    """
+    INSERT INTO #{quote_tablename(model.table)}
+    (#{attributes}) VALUES(?)
+    RETURNING #{quote_column(model.primary_key)}
+    """
+  end
 end

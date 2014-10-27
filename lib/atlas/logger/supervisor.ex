@@ -7,6 +7,6 @@ defmodule Atlas.Logger.Supervisor do
 
   def init(log_path) do
     tree = [worker(Atlas.Logger.Server, [log_path])]
-    supervise tree, strategy: :one_for_all
+    supervise tree, strategy: :one_for_all, max_restarts: 5000, max_seconds: 10
   end
 end

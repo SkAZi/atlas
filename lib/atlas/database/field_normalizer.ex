@@ -10,6 +10,7 @@ defmodule Atlas.Database.FieldNormalizer do
 
   def normalize_value(values) when is_list(values), do: normalize_values(values)
   def normalize_value(:null), do: nil
+  def normalize_value(:undefined), do: nil
   def normalize_value("t"), do: true
   def normalize_value("f"), do: false
   def normalize_value(timestamp = {{_, _, _}, {_, _, _}}), do: timestamp

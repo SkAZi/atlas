@@ -203,13 +203,7 @@ defmodule Atlas.Persistence do
       defp to_prepared_insert_sql(record, model) do
         attributes = attributes_without_nil_primary_key(record, model)
 
-        prepared_sql = """
-        INSERT INTO #{adapter.quote_tablename(model.table)}
-        (#{to_column_sql(attributes)})
-        VALUES(?)
-        RETURNING #{adapter.quote_column(model.primary_key)}
-        """
-
+        prepared_sql = apply(adapter, :insert_sql, [model, to_column_sql(attributes)])
         { prepared_sql, [Keyword.values(attributes)] }
       end
 

@@ -11,7 +11,7 @@ defmodule Atlas.Database.Supervisor do
 
   def init(repo) do
     tree = [worker(Atlas.Database.Server, [repo])]
-    supervise tree, strategy: :one_for_all
+    supervise tree, strategy: :one_for_all, max_restarts: 5000, max_seconds: 10
   end
 
   defp name(repo) do
