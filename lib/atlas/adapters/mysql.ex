@@ -39,8 +39,7 @@ defmodule Atlas.Adapters.MySQL do
   def execute_prepared_query(pid, query_string, args) do
     args = denormalize_values(args)
     query = expand_bindings(query_string, args)
-    MySQL.prepare(:native_bindings, query)
-    MySQL.execute(pid, :native_bindings, List.flatten(args)) 
+    MySQL.execute(query, :native_bindings, List.flatten(args)) 
       |> normalize_results
   end
 
