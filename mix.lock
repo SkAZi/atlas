@@ -1,1 +1,3 @@
-%{"epgsql": {:git, "git://github.com/wg/epgsql.git", "3318bd5d646cad0623ae9dcc6df015bb85258a63", []}}
+%{"emysq": {:git, "git://github.com/Eonblast/Emysql.git", "c7e2103f8b737667f0128802e8de2f0d5ed2fa5c", []},
+  "emysql": {:git, "git://github.com/Eonblast/Emysql.git", "c7e2103f8b737667f0128802e8de2f0d5ed2fa5c", []},
+  "epgsql": {:git, "git://github.com/wg/epgsql.git", "3318bd5d646cad0623ae9dcc6df015bb85258a63", []}}

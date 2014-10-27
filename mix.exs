@@ -5,7 +5,7 @@ defmodule Atlas.Mixfile do
     [
       app: :atlas,
       version: "0.2.0",
-      elixir: "~> 0.15.0",
+      elixir: "~> 1.0.0",
       deps: deps,
       package: [
         contributors: ["Chris McCord", "Sonny Scroggin"],
@@ -29,6 +29,7 @@ defmodule Atlas.Mixfile do
   # Returns the list of dependencies in the format:
   # { :foobar, "0.1", git: "https://github.com/elixir-lang/foobar.git" }
   defp deps do
-    [{:epgsql, github: "wg/epgsql"}]
+    [{:epgsql, github: "wg/epgsql"},
+    {:emysql, github: "Eonblast/Emysql"}]
   end
 end
